@@ -12,7 +12,7 @@ param DOCKER_REGISTRY_SERVER_PASSWORD string
 
 
 
-module acr 'modules/container-registry/registry/main.bicep' = {
+module registry './modules/container-registry/registry/main.bicep' = {
   name: '${acrname}-deploy'
   params: {
     name: acrname
@@ -22,7 +22,7 @@ module acr 'modules/container-registry/registry/main.bicep' = {
 
 }
 
-module appsServicePlan 'modules/web/serverfarm/main.bicep' = {
+module serverfarm 'modules/web/serverfarm/main.bicep' = {
   name: '${aspname}-deploy'
   params: {
     name: aspname
@@ -39,7 +39,7 @@ module appsServicePlan 'modules/web/serverfarm/main.bicep' = {
 }
 
 
-module azureWebApp 'modules/web/site/main.bicep' = {
+module site 'modules/web/site/main.bicep' = {
   name: '${awaname}-deploy'
   params: {
     name: awaname
